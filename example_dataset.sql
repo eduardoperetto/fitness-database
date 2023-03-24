@@ -282,3 +282,38 @@ INSERT INTO ComposicaoRefeicao VALUES (
     0,
     0
 );
+
+-- Peso
+INSERT INTO Peso VALUES (
+    0,
+    73.0,
+    "01/03/2023"
+);
+
+INSERT INTO Peso VALUES (
+    1,
+    73.7,
+    "20/03/2023"
+);
+
+INSERT INTO Peso VALUES (
+    2,
+    76.0,
+    "15/02/2023"
+);
+
+-- Pesagem
+INSERT INTO Pesagem VALUES (
+    0,
+    0
+);
+
+INSERT INTO Pesagem VALUES (
+    1,
+    0
+);
+
+INSERT INTO Pesagem VALUES (
+    2,
+    1
+);
