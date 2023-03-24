@@ -30,28 +30,34 @@ INSERT INTO Diario VALUES (
 
 --  TipoExercicio
 INSERT INTO TipoExercicio VALUES (
+    0,
     "Caminhada",
     4.1
 );
 INSERT INTO TipoExercicio VALUES (
+    1,
     "Futebol",
     5.6
 );
 INSERT INTO TipoExercicio VALUES (
+    2,
     "Musculacao",
     6.0
 );
 
 --  Nutriente
 INSERT INTO Nutriente VALUES (
+    0,
     "Carboidrato",
     4.1
 );
 INSERT INTO Nutriente VALUES (
+    1,
     "Proteina",
     4.0
 );
 INSERT INTO Nutriente VALUES (
+    2,
     "Gordura",
     7.0
 );
@@ -75,27 +81,27 @@ INSERT INTO Objetivo VALUES (
 
 -- Usuario
 INSERT INTO Usuario VALUES (
+    0,
     "eduardoperetto",
     "erperetto@gmail.com",
     174,
     "M",
-    74.0,
     2
 );
 INSERT INTO Usuario VALUES (
+    1,
     "fernandosulzbach",
     "fsulzach@gmail.com",
     181,
     "M",
-    76.0,
     0
 );
 INSERT INTO Usuario VALUES (
+    2,
     "fulanosilva",
     "fulano@gmail.com",
     166,
     "F",
-    55.0,
     1
 );
 
@@ -104,65 +110,65 @@ INSERT INTO Exercicio VALUES (
     0,
     30,
     "Caminhada",
-    "eduardoperetto"
+    0
 );
 INSERT INTO Exercicio VALUES (
     1,
     50,
     "Futebol",
-    "fernandosulzbach"
+    1
 );
 INSERT INTO Exercicio VALUES (
     2,
     60,
     "Musculacao",
-    "fulanosilva"
+    2
 );
 
 -- Receita
 INSERT INTO Receita VALUES (
     0,
     "Bolo de banana",
-    "fulanosilva"
+    2
 );
 INSERT INTO Receita VALUES (
     1,
     "Prato feito",
-    "eduardoperetto"
+    0
 );
 INSERT INTO Receita VALUES (
     2,
     "Sanduiche de frango",
-    "fernandosulzbach"
+    1
 );
 
 -- Refeicao
 INSERT INTO Refeicao VALUES (
-    "Cafe da manha",
-    "08:00"
+    0,
+    "Cafe da manha"
 );
 INSERT INTO Refeicao VALUES (
-    "Almoco",
-    "12:00"
+    1,
+    "Almoco"
 );
 INSERT INTO Refeicao VALUES (
-    "Janta",
-    "20:00"
+    2,
+    "Janta"
 );
 
 -- ComposicaoAlimentar
 INSERT INTO ComposicaoAlimentar VALUES (
-    "Carboidrato",
+    0,
     0,
     30
 );
 INSERT INTO ComposicaoAlimentar VALUES (
-    "Proteina",
+    1,
     1,
     15
 );
 INSERT INTO ComposicaoAlimentar VALUES (
-    "Gordura",
+    2,
     2,
     8
 );
@@ -184,74 +190,83 @@ INSERT INTO Treino VALUES (
 -- CronogramaAlimentar
 INSERT INTO CronogramaAlimentar VALUES (
     0,
-    2
+    2,
+    "08:00"
 );
 INSERT INTO CronogramaAlimentar VALUES (
     2,
-    1
+    1,
+    "12:00"
 );
 INSERT INTO CronogramaAlimentar VALUES (
     0,
-    1
+    1,
+    "19:00"
 );
 
 -- MetaDiaria
 INSERT INTO MetaDiaria VALUES (
+    0,
     "Segunda saudavel",
-    "eduardoperetto"
+    0
 );
 INSERT INTO MetaDiaria VALUES (
+    1,
     "Dia do lixo",
-    "fulanosilva"
+    2
 );
 INSERT INTO MetaDiaria VALUES (
+    2,
     "Final de semana",
     "fernandosulzabach"
 );
 
 -- MetaExercicio
 INSERT INTO MetaExercicio VALUES (
-    "Final de semana",
+    2,
     1
 );
 INSERT INTO MetaExercicio VALUES (
-    "Dia do lixo",
+    1,
     0
 );
 INSERT INTO MetaExercicio VALUES (
-    "Segunda saudavel",
+    0,
     2
 );
 
 -- MetaDiarioNutriente
 INSERT INTO MetaDiarioNutriente VALUES (
-    "Carboidrato",
-    "eduardoperetto",
+    0,
+    0,
     300
 );
 INSERT INTO MetaDiarioNutriente VALUES (
-    "Proteina",
-    "eduardoperetto",
+    1,
+    0,
     120
 );
 INSERT INTO MetaDiarioNutriente VALUES (
-    "Gordura",
-    "eduardoperetto",
+    2,
+    0,
     40
 );
 
 -- Ingrediente
 INSERT INTO Ingrediente VALUES (
     0,
-    1
+    1,
+    100
 );
 INSERT INTO Ingrediente VALUES (
     1,
-    0
+    0,
+    200
 );
 INSERT INTO Ingrediente VALUES (
     2,
-    2
+    2,
+    400
 );
 
 -- ComposicaoRefeicao
