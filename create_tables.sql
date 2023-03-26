@@ -1,52 +1,60 @@
--- TABLE
+CREATE TABLE Objetivo 
+( 
+ idObjetivo SERIAL PRIMARY KEY,
+ pesoAlvo INT NOT NULL CHECK (pesoAlvo>0),  
+ propositoGanhoDePeso BOOL NOT NULL
+);
 CREATE TABLE Alimento 
 ( 
- idAlimento INT PRIMARY KEY,
+ idAlimento SERIAL PRIMARY KEY,
  nome VARCHAR(60) NOT NULL UNIQUE
- -- Adicionar propriedade calorias e implementar stored procedure
 );
 CREATE TABLE Diario 
 ( 
- idDiario INT PRIMARY KEY,
+ idDiario SERIAL PRIMARY KEY,
  data DATE UNIQUE NOT NULL 
+);
+CREATE TABLE TipoExercicio 
+(
+ idTipoExercicio SERIAL PRIMARY KEY,
+ nome VARCHAR(60) UNIQUE NOT NULL,  
+ gastoCalorico FLOAT CHECK(gastoCalorico>0)
+);
+CREATE TABLE Usuario 
+(  
+ id SERIAL PRIMARY KEY,
+ nome VARCHAR(20) UNIQUE NOT NULL,  
+ email VARCHAR UNIQUE NOT NULL,
+ altura INT NOT NULL,  
+ sexo CHAR(1) NOT NULL,
+ idObjetivo INT,  
+ FOREIGN KEY(idObjetivo) REFERENCES Objetivo (idObjetivo)
 );
 CREATE TABLE Exercicio 
 ( 
- idExercicio INT PRIMARY KEY,  
+ idExercicio SERIAL PRIMARY KEY,  
  duracao INT CHECK (duracao > 0),  
- idTipoExercicio VARCHAR(60),
+ idTipoExercicio INT,
  idUsuario INT,
  FOREIGN KEY(idTipoExercicio) REFERENCES TipoExercicio (idTipoExercicio),
  FOREIGN KEY(idUsuario) REFERENCES Usuario (id)
 );
-CREATE TABLE TipoExercicio 
-(
- idTipoExercicio INT PRIMARY KEY,
- nome VARCHAR(60) UNIQUE NOT NULL,  
- gastoCalorico FLOAT CHECK(gastoCalorico>0)
-);
 CREATE TABLE Nutriente 
 (
- idNutriente INT PRIMARY KEY,
+ idNutriente SERIAL PRIMARY KEY,
  nome VARCHAR(60) UNIQUE NOT NULL,
  caloriasPorGrama FLOAT NOT NULL CHECK(caloriasPorGrama>=0)
 );
-CREATE TABLE Objetivo 
-( 
- idObjetivo INT PRIMARY KEY,
- pesoAlvo INT NOT NULL CHECK (pesoAlvo>0),  
- propositoGanhoDePeso BOOL NOT NULL
-);
 CREATE TABLE Receita 
 ( 
- idReceita INT PRIMARY KEY,  
+ idReceita SERIAL PRIMARY KEY,  
  nome VARCHAR(60) NOT NULL,  
  idUsuario INT,
  FOREIGN KEY(idUsuario) REFERENCES Usuario (id)
 );
 CREATE TABLE Refeicao 
 ( 
- idRefeicao INT PRIMARY KEY,
+ idRefeicao SERIAL PRIMARY KEY,
  nome VARCHAR(60) UNIQUE NOT NULL
 );
 CREATE TABLE ComposicaoAlimentar 
@@ -74,7 +82,7 @@ CREATE TABLE CronogramaAlimentar
 );
 CREATE TABLE MetaDiaria
 ( 
- idMetaDiaria INT PRIMARY KEY,
+ idMetaDiaria SERIAL PRIMARY KEY,
  nome VARCHAR(60) UNIQUE NOT NULL,
  idUsuario INT,
  FOREIGN KEY(idUsuario) REFERENCES Usuario (id)
@@ -83,7 +91,7 @@ CREATE TABLE MetaExercicio
 ( 
  idMeta INT,  
  idExercicio INT,
- FOREIGN KEY(idMeta) REFERENCES MetaDiaria (idMetaDiaria)
+ FOREIGN KEY(idMeta) REFERENCES MetaDiaria (idMetaDiaria),
  FOREIGN KEY(idExercicio) REFERENCES Exercicio (idExercicio)
 );
 CREATE TABLE MetaDiarioNutriente
@@ -109,19 +117,9 @@ CREATE TABLE ComposicaoRefeicao
  FOREIGN KEY(idRefeicao) REFERENCES Refeicao (idRefeicao),
  FOREIGN KEY(idAlimento) REFERENCES Alimento (idAlimento)
 );
-CREATE TABLE Usuario 
-(  
- id INT PRIMARY KEY,
- nome VARCHAR(20) UNIQUE NOT NULL,  
- email VARCHAR UNIQUE NOT NULL,
- altura INT NOT NULL,  
- sexo CHAR(1) NOT NULL,
- idObjetivo INT,  
- FOREIGN KEY(idObjetivo) REFERENCES Objetivo (idObjetivo)
-);
 CREATE TABLE Peso
 (
- idPeso INT PRIMARY KEY,
+ idPeso SERIAL PRIMARY KEY,
  valor FLOAT NOT NULL CHECK(valor>0),
  data DATE NOT NULL
 );
@@ -132,4 +130,3 @@ CREATE TABLE Pesagem
  FOREIGN KEY(idPeso) REFERENCES Peso (idPeso),
  FOREIGN KEY(idUsuario) REFERENCES Usuario (id)
 );
- 
