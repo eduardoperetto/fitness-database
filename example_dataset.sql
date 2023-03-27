@@ -14,20 +14,6 @@ INSERT INTO Alimento VALUES (
     'Frango Cozido'
 );
 
---  Diario
-INSERT INTO Diario VALUES (
-    0,
-    '01/26/2023'
-);
-INSERT INTO Diario VALUES (
-    1,
-    '01/27/2023'
-);
-INSERT INTO Diario VALUES (
-    2,
-    '01/28/2023'
-);
-
 --  TipoExercicio
 INSERT INTO TipoExercicio VALUES (
     0,
@@ -122,6 +108,23 @@ INSERT INTO Exercicio VALUES (
     2,
     60,
     2,
+    2
+);
+
+--  Diario
+INSERT INTO Diario VALUES (
+    0,
+    '01/26/2023',
+    0
+);
+INSERT INTO Diario VALUES (
+    1,
+    '01/27/2023',
+    1
+);
+INSERT INTO Diario VALUES (
+    2,
+    '01/28/2023',
     2
 );
 

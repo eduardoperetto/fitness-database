@@ -9,11 +9,6 @@ CREATE TABLE Alimento
  idAlimento SERIAL PRIMARY KEY,
  nome VARCHAR(60) NOT NULL UNIQUE
 );
-CREATE TABLE Diario 
-( 
- idDiario SERIAL PRIMARY KEY,
- data DATE UNIQUE NOT NULL 
-);
 CREATE TABLE TipoExercicio 
 (
  idTipoExercicio SERIAL PRIMARY KEY,
@@ -29,6 +24,13 @@ CREATE TABLE Usuario
  sexo CHAR(1) NOT NULL,
  idObjetivo INT,  
  FOREIGN KEY(idObjetivo) REFERENCES Objetivo (idObjetivo)
+);
+CREATE TABLE Diario 
+( 
+ idDiario SERIAL PRIMARY KEY,
+ data DATE UNIQUE NOT NULL,
+ idUsuario INT,
+ FOREIGN KEY(idUsuario) REFERENCES Usuario (id)
 );
 CREATE TABLE Exercicio 
 ( 
@@ -106,7 +108,7 @@ CREATE TABLE Ingrediente
 ( 
  idReceita INT,
  idAlimento INT,
- quantidade INT,
+ unidades INT CHECK (unidades>0),
  FOREIGN KEY(idReceita) REFERENCES Receita (idReceita),
  FOREIGN KEY(idAlimento) REFERENCES Alimento (idAlimento)
 );
